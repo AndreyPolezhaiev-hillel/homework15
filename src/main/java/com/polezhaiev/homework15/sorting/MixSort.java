@@ -1,7 +1,7 @@
 package main.java.com.polezhaiev.homework15.sorting;
 
 public class MixSort{
-    public void mixSort(int[] arr, int position) {
+    public <T extends Comparable<T>> void mixSort(T[] arr, int position) {
         if(arr.length == 0 || arr == null || (position < 0 && position > arr.length)){
             return;
         }
@@ -9,16 +9,16 @@ public class MixSort{
         int count = 0;
 
         for (int i = position; i < arr.length - position; i++) {
-            int min = arr[i];
-            int max = arr[i];
+            T min = arr[i];
+            T max = arr[i];
 
             for (int j = position; j < arr.length - position; j++) {
-                if(min >= arr[j]){
+                if(min.compareTo(arr[j]) > 0){
                     min = arr[j];
 
                 }
 
-                if(max <= arr[j]){
+                if(max.compareTo(arr[j]) < 0){
                     max = arr[j];
 
                 }
